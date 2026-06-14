@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>⚠️ Low Stock Alert</h1>
+    
+    <table>
+        <thead>
+            <tr>
+                <th>Product Name</th>
+                <th>Category</th>
+                <th>Stock Quantity</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in items %}
+            <tr>
+                <td>{{ item.product_name }}</td>
+                <td>{{ item.category_name or 'No Category' }}</td>
+                <td><strong style="color: red;">{{ item.stock_quantity }}</strong></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

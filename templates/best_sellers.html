@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>🔥 Top 5 Best Sellers</h1>
+    
+    <table>
+        <thead>
+            <tr>
+                <th>Rank</th>
+                <th>Product Name</th>
+                <th>Category</th>
+                <th>Total Sold</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in best_sellers %}
+            <tr>
+                <td>{{ loop.index }}</td>
+                <td>{{ item.product_name }}</td>
+                <td>{{ item.category_name or 'No Category' }}</td>
+                <td><strong>{{ item.total_sold }}</strong></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
